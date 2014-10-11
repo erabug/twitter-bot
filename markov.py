@@ -69,17 +69,27 @@ def main(filenames):
 
     chain_dict = assemble_dictionary(file_objs)
 
+    # two sentences
+    # var1 = make_text(chain_dict)
+    # var2 = make_text(chain_dict)
+    # while len(var1 + var2) > 140:
+    #     var1 = make_text(chain_dict)
+    #     var2 = make_text(chain_dict)
+    # tweet = var1[0].upper() + var1[1:] + " " + var2[0].upper() + var2[1:]
+
+    # one sentence
     var1 = make_text(chain_dict)
-    var2 = make_text(chain_dict)
-    while len(var1 + var2) > 140:
+    while len(var1) > 140:
         var1 = make_text(chain_dict)
-        var2 = make_text(chain_dict)
-    tweet = var1[0].upper() + var1[1:] + " " + var2[0].upper() + var2[1:]
+    tweet = var1[0].upper() + var1[1:]
+
+    # normal tweet prompt
     print "\n", tweet
-    validate_tweet = raw_input("Would you like to tweet this quote? Y or N? ")
-    if validate_tweet.upper() == 'Y':
-        api.PostUpdate(tweet)
-        print "Success!"
+    # validate_tweet = raw_input("Would you like to tweet this quote? Y or N? ")
+    # if validate_tweet.upper() == 'Y':
+    #     api.PostUpdate(tweet)
+    #     print "Success!"
+
 
     
 
