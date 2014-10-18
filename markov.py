@@ -30,8 +30,8 @@ def assemble_dictionary(file_objects):
     def add_input_to_dictionary(clean_text):
         """Adds a list of clean text to the dictionary"""
         for i in range(len(clean_text)-2):
-            key = (clean_text[i], clean_text[i+1])
-            value = clean_text[i+2]
+            key = (clean_text[i], clean_text[i + 1])
+            value = clean_text[i + 2]
             # if key exists, append value. if it doesn't, set it to an empty list
             chains.setdefault(key, []).append(value) 
 
@@ -65,7 +65,7 @@ def make_tweet(chain_dict):
 
     var1 = make_sentence(chain_dict)
 
-    while len(var1) > 140 or len(var1) < 40:
+    while len(var1) >= 140 or len(var1) <= 40:
         var1 = make_sentence(chain_dict)
 
     return var1[0].upper() + var1[1:]
